@@ -37,11 +37,11 @@ const HeroSection = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-3xl mx-auto">
-            Aadhaar-Driven Migration Infrastructure Stress Analytics
+            Data Analytics Project Report
           </p>
           
           <p className="text-lg text-muted-foreground/70 mb-12 max-w-2xl mx-auto">
-            Evidence-Based SDG 9 Infrastructure Planning for Resilient Urban Development
+            Aadhaar-Driven Migration & Infrastructure Stress Analytics for Evidence-Based SDG 9 Planning
           </p>
           
           <motion.div 
@@ -51,20 +51,20 @@ const HeroSection = () => {
             className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto"
           >
             <div className="stat-card text-center">
-              <div className="metric-value">32M+</div>
-              <div className="metric-label">Biometric Records</div>
+              <div className="metric-value">4.9M+</div>
+              <div className="metric-label">Total Records</div>
             </div>
             <div className="stat-card text-center">
-              <div className="metric-value">15M+</div>
-              <div className="metric-label">Demographic Updates</div>
+              <div className="metric-value">3</div>
+              <div className="metric-label">Datasets Analyzed</div>
             </div>
             <div className="stat-card text-center">
-              <div className="metric-value">750</div>
+              <div className="metric-value">961</div>
               <div className="metric-label">Districts Covered</div>
             </div>
             <div className="stat-card text-center">
               <div className="metric-value">38</div>
-              <div className="metric-label">States Analyzed</div>
+              <div className="metric-label">States/UTs</div>
             </div>
           </motion.div>
         </motion.div>
@@ -75,7 +75,7 @@ const HeroSection = () => {
           transition={{ delay: 1, duration: 0.6 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
         >
-          <a href="#executive-summary" className="text-muted-foreground hover:text-primary transition-colors">
+          <a href="#abstract" className="text-muted-foreground hover:text-primary transition-colors">
             <svg className="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
