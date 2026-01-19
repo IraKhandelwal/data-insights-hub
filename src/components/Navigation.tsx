@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const navItems = [
-  { label: 'Summary', href: '#executive-summary' },
-  { label: 'Data', href: '#data-overview' },
+  { label: 'Abstract', href: '#abstract' },
+  { label: 'Dataset', href: '#dataset' },
   { label: 'Methodology', href: '#methodology' },
-  { label: 'Visualizations', href: '#visualizations' },
+  { label: 'EDA', href: '#eda' },
+  { label: 'Visual Analysis', href: '#visual-analysis' },
   { label: 'Conclusions', href: '#conclusions' },
 ];
 
@@ -36,6 +37,7 @@ const Navigation = () => {
             <a href="#" className="text-xl font-bold">
               <span className="text-foreground">Urban</span>
               <span className="gradient-text">Pulse</span>
+              <span className="text-xs ml-2 text-muted-foreground">Analytics</span>
             </a>
 
             {/* Desktop Navigation */}
