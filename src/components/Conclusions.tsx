@@ -148,6 +148,60 @@ const Conclusions = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Limitations Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-20"
+        >
+          <div className="text-center mb-8">
+            <span className="badge-steady mb-4 inline-block">TRANSPARENCY</span>
+            <h3 className="section-title text-3xl">Limitations</h3>
+          </div>
+          <div className="stat-card p-6 max-w-4xl mx-auto">
+            <ul className="space-y-3">
+              {[
+                'Data coverage limited to available UIDAI records',
+                'Temporal scope restricted to the dataset time period',
+                'Infrastructure stress indicators are proxy measures',
+                'Real-time integration not yet implemented'
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-3 text-muted-foreground">
+                  <span className="text-yellow-500 mt-1">⚠</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </motion.div>
+
+        {/* Interactive Link */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-20 text-center"
+        >
+          <div className="stat-card p-8 max-w-2xl mx-auto glow-effect">
+            <p className="text-lg text-muted-foreground mb-4">For better visualization and interactive exploration:</p>
+            <a 
+              href="https://urban-pulsee.netlify.app/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full text-lg font-semibold hover:bg-primary/90 transition-colors"
+            >
+              <span>Visit Interactive Dashboard</span>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+            <p className="text-sm text-muted-foreground mt-4">https://urban-pulsee.netlify.app/</p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
