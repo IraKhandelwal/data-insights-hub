@@ -3,34 +3,50 @@ import { motion } from 'framer-motion';
 const methodologySteps = [
   {
     step: '01',
-    title: 'Data Collection',
+    title: 'Step 1: Data Collection',
     description: 'Gathered three primary datasets from UIDAI: Demographic (2.07M records), Enrolment (1M records), and Biometric (1.86M records) data covering states and districts across India.',
-    details: ['Demographic dataset with age-wise breakdowns', 'Enrolment data segmented by age groups', 'Biometric update records']
   },
   {
     step: '02',
-    title: 'Data Cleaning',
-    description: 'Performed strategic cleaning including handling missing values, removing duplicates, and formatting corrections.',
-    details: ['Removed duplicate records from all datasets', 'Handled missing critical geographic data', 'Unified geographic identifiers across all data silos']
+    title: 'Step 2: Data Cleaning',
+    description: 'Performed strategic cleaning including handling missing values, removing duplicates, and formatting corrections. Geographic identifiers unified across all data silos.',
   },
   {
     step: '03',
-    title: 'Data Transformation',
-    description: 'Advanced preprocessing including state name corrections and data aggregation for analysis.',
-    details: ['Corrected state name variations', 'Removed invalid entries', 'Standardized date formats']
+    title: 'Step 3: Data Transformation',
+    description: 'Advanced preprocessing including state name corrections and data aggregation for analysis. Standardized date formats and removed invalid entries.',
   },
   {
     step: '04',
-    title: 'Exploratory Data Analysis',
-    description: 'Comprehensive statistical analysis including summary statistics, distribution analysis, and correlation studies.',
-    details: ['Descriptive statistics for all numeric columns', 'Distribution analysis across states', 'Outlier detection']
+    title: 'Step 4: Exploratory Data Analysis',
+    description: 'Comprehensive statistical analysis including summary statistics, distribution analysis, and correlation studies across all datasets.',
   },
   {
     step: '05',
-    title: 'Visualization & Interpretation',
-    description: 'Created interactive visualizations including heatmaps, time-series charts, and decomposition matrices.',
-    details: ['ISI Decomposition Matrix', 'Month-of-Year Distribution', 'Infrastructure Stress Heatmaps']
+    title: 'Step 5: Visualization & Interpretation',
+    description: 'Created interactive visualizations including heatmaps, time-series charts, ISI decomposition matrices, and monthly distribution analyses.',
   }
+];
+
+const isiComponents = [
+  {
+    name: 'Structural Load',
+    description: 'Baseline population pressure on infrastructure'
+  },
+  {
+    name: 'Growth Shock',
+    description: 'Recent acceleration in enrolment-driven demand'
+  },
+  {
+    name: 'Momentum',
+    description: 'Persistence and direction of stress over time'
+  }
+];
+
+const decisionEnablement = [
+  'Identification of high-pressure districts',
+  'Cross-state stress comparison',
+  'Prioritization of infrastructure and service planning'
 ];
 
 const tools = [
@@ -53,49 +69,107 @@ const Methodology = () => {
         >
           <h2 className="section-title">Methodology</h2>
           <p className="section-subtitle">
-            Systematic approach to data processing, analysis, and visualization
+            Analytical Pipeline
           </p>
         </motion.div>
 
+        {/* Description */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto mb-12"
+        >
+          <p className="text-muted-foreground text-center">
+            The project processes large-scale UIDAI (Aadhaar) demographic and enrolment data through systematic cleaning, standardization, and district-level aggregation to ensure reliable cross-regional comparison.
+          </p>
+        </motion.div>
+
+        {/* ISI Framework */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto mb-16"
+        >
+          <div className="stat-card p-8">
+            <h3 className="text-2xl font-bold text-primary mb-4 text-center">Infrastructure Stress Index (ISI)</h3>
+            <p className="text-muted-foreground mb-6 text-center">
+              A composite Infrastructure Stress Index (ISI) is designed to convert Aadhaar enrolment dynamics into a single, interpretable measure of relative infrastructure pressure. The ISI integrates three analytically distinct components:
+            </p>
+            <div className="grid md:grid-cols-3 gap-4 mb-6">
+              {isiComponents.map((component, index) => (
+                <motion.div
+                  key={component.name}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1, duration: 0.4 }}
+                  className="bg-primary/10 border border-primary/30 rounded-lg p-4 text-center"
+                >
+                  <h4 className="text-primary font-bold mb-2">{component.name}</h4>
+                  <p className="text-muted-foreground text-sm">{component.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Decision Enablement */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto mb-16"
+        >
+          <div className="stat-card p-6">
+            <h3 className="text-xl font-bold text-foreground mb-4">Decision Enablement</h3>
+            <p className="text-muted-foreground mb-4">By consolidating multiple stress signals into a unified metric, ISI enables:</p>
+            <ul className="space-y-2">
+              {decisionEnablement.map((item, index) => (
+                <li key={index} className="flex items-start gap-3 text-muted-foreground">
+                  <span className="text-primary mt-1">▹</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p className="text-muted-foreground mt-4 text-sm">
+              Outputs are delivered through interactive visual dashboards to support evidence-based decision-making aligned with SDG 9.
+            </p>
+          </div>
+        </motion.div>
+
         {/* Methodology Steps */}
-        <div className="max-w-4xl mx-auto mb-16">
-          {methodologySteps.map((step, index) => (
-            <motion.div
-              key={step.step}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="relative mb-8 last:mb-0"
-            >
-              <div className="flex gap-6">
-                {/* Step Number */}
-                <div className="flex-shrink-0">
-                  <div className="w-16 h-16 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center">
-                    <span className="text-2xl font-bold text-primary font-mono">{step.step}</span>
-                  </div>
-                  {index < methodologySteps.length - 1 && (
-                    <div className="w-0.5 h-full bg-primary/30 mx-auto mt-2" />
-                  )}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto mb-16"
+        >
+          <h3 className="text-2xl font-bold text-foreground mb-8 text-center">Steps</h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {methodologySteps.map((step, index) => (
+              <motion.div
+                key={step.step}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                className="stat-card p-6"
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <span className="text-3xl font-bold text-primary/50">{step.step}</span>
                 </div>
-                
-                {/* Content */}
-                <div className="stat-card p-6 flex-1">
-                  <h3 className="text-xl font-bold text-foreground mb-2">{step.title}</h3>
-                  <p className="text-muted-foreground mb-4">{step.description}</p>
-                  <ul className="space-y-2">
-                    {step.details.map((detail, i) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <span className="text-primary mt-1">•</span>
-                        {detail}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                <h4 className="text-lg font-bold text-foreground mb-2">{step.title}</h4>
+                <p className="text-muted-foreground text-sm">{step.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
         {/* Tools & Technologies */}
         <motion.div
@@ -119,26 +193,6 @@ const Methodology = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </motion.div>
-
-        {/* Data Processing Summary */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-12 max-w-4xl mx-auto"
-        >
-          <div className="stat-card p-6 bg-primary/5 border-primary/30">
-            <h4 className="text-lg font-bold text-primary mb-4">Data Processing Summary</h4>
-            <div className="space-y-2 font-mono text-sm">
-              <p className="text-green-400">✓ STRATEGIC CLEANING: Geographic identifiers unified across all data silos.</p>
-              <p className="text-green-400">✓ DATA QUALITY: Duplicates removed from all datasets.</p>
-              <p className="text-green-400">✓ DATA QUALITY: Rows with missing critical geographic data removed.</p>
-              <p className="text-green-400">✓ ADVANCED CLEANING: State name variations corrected and invalid entries removed.</p>
-              <p className="text-green-400">✓ PREPROCESSING COMPLETE: Datasets sanitized for analysis.</p>
-            </div>
           </div>
         </motion.div>
       </div>

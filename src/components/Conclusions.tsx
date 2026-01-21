@@ -1,69 +1,45 @@
 import { motion } from 'framer-motion';
 
-const conclusions = [
+const keyInsights = [
   {
-    number: '01',
     title: 'Critical Infrastructure Stress',
-    description: '16% of Indian districts (120+ out of 750) face critical or high infrastructure stress driven by migration patterns.',
-    highlight: '120+ Districts at Risk'
+    description: 'Analysis reveals significant variation in infrastructure stress across districts and states, with stress concentration clustering around high-migration and high-enrolment regions. The Infrastructure Stress Index (ISI) enables clear differentiation between low-pressure, moderate-pressure, and high-pressure districts, supporting targeted prioritization rather than uniform planning.'
   },
   {
-    number: '02',
     title: 'Migration Load Dominance',
-    description: 'Migration-driven load contributes 65–78% of observed infrastructure utilization in high-stress zones.',
-    highlight: '65-78% Load Contribution'
+    description: 'Migration-driven load contributes 65–78% of observed infrastructure utilization in high-stress zones.'
   },
   {
-    number: '03',
-    title: 'Investment Imperative',
-    description: '23 metropolitan districts require immediate capacity interventions with estimated investment need of ₹2.8 trillion.',
-    highlight: '₹2.8T Investment Required'
+    title: 'Migration-Driven Stress Dynamics',
+    description: 'Temporal enrolment trends indicate that recent growth shocks and sustained momentum play a critical role in amplifying infrastructure pressure. Districts exhibiting persistent upward momentum show early signs of future service overload, even when current population levels appear moderate.'
   },
   {
-    number: '04',
     title: 'Real-Time Governance',
-    description: 'Aadhaar-driven monitoring enables proactive governance aligned with SDG 9 resilience objectives.',
-    highlight: '48-Hour Decision Cycle'
+    description: 'Aadhaar-driven monitoring enables proactive governance aligned with SDG 9 resilience objectives. 48-Hour Decision Cycle possible.'
   },
   {
-    number: '05',
-    title: 'Scalable Framework',
-    description: 'Methodology validated across 750 districts; ready for integration into national smart city and infrastructure planning.',
-    highlight: 'Pan-India Scalability'
-  },
+    title: 'Decision Implications',
+    description: 'These insights enable proactive planning for public infrastructure and service delivery, including urban utilities, administrative capacity, and Aadhaar Seva Kendra provisioning, reducing reliance on reactive congestion management.'
+  }
 ];
 
-const futureEnhancements = [
-  {
-    title: 'AI-Driven Forecasting',
-    items: [
-      '12-month migration prediction using ML models',
-      'Seasonal pattern recognition & anomaly detection',
-      'Infrastructure demand nowcasting (1-3 month horizon)'
-    ]
-  },
-  {
-    title: 'Real-Time DPI Integration',
-    items: [
-      'Live Aadhaar-to-dashboard data pipeline (24-hour latency)',
-      'Integration with utilities (water, energy, transport)',
-      'IoT sensor fusion for ground-truth validation'
-    ]
-  },
-  {
-    title: 'Smart City Alignment (SDG 9)',
-    items: [
-      'National Smart Cities Mission integration',
-      'Automated resource allocation based on stress indicators',
-      'Cross-border migration tracking for regional coordination'
-    ]
-  },
+const districtPrioritization = [
+  'Immediate intervention zones',
+  'Emerging stress hotspots',
+  'Regions suitable for phased infrastructure expansion'
+];
+
+const policyPlanningImpact = [
+  'Identify high-priority districts requiring immediate attention',
+  'Anticipate emerging stress hotspots before service congestion escalates',
+  'Support evidence-based planning for urban utilities, administrative capacity, and Aadhaar Seva Kendra provisioning'
 ];
 
 const Conclusions = () => {
   return (
     <section id="conclusions" className="py-20 md:py-32">
       <div className="container mx-auto px-4">
+        {/* Key Insights & Findings */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -71,50 +47,26 @@ const Conclusions = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="badge-steady mb-4 inline-block">POLICY IMPLICATIONS</span>
-          <h2 className="section-title text-4xl md:text-5xl">Conclusions & Recommendations</h2>
-          <p className="section-subtitle max-w-2xl mx-auto">
-            Policy-ready evidence for resilient infrastructure planning
-          </p>
+          <h2 className="section-title text-4xl md:text-5xl">Key Insights & Findings</h2>
         </motion.div>
 
-        {/* Key Conclusions */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
-          {conclusions.map((item, index) => (
+        <div className="grid md:grid-cols-2 gap-6 mb-20 max-w-5xl mx-auto">
+          {keyInsights.map((item, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="stat-card group hover:border-primary/50 transition-colors"
+              className="stat-card p-6"
             >
-              <div className="text-6xl font-bold text-secondary/50 mb-4 group-hover:text-primary/30 transition-colors">
-                {item.number}
-              </div>
-              <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
-              <p className="text-muted-foreground mb-4 text-sm">{item.description}</p>
-              <span className="badge-high">{item.highlight}</span>
+              <h3 className="text-lg font-bold text-primary mb-3">{item.title}</h3>
+              <p className="text-muted-foreground text-sm">{item.description}</p>
             </motion.div>
           ))}
         </div>
 
-        {/* Governance Implication */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="stat-card max-w-4xl mx-auto mb-20 glow-effect"
-        >
-          <span className="badge-critical mb-4 inline-block">GOVERNANCE IMPLICATION</span>
-          <p className="text-xl md:text-2xl text-foreground leading-relaxed">
-            Immediate prioritization of capital allocation to critical districts, with 
-            <span className="gradient-text font-bold"> 6-month monitoring windows</span> for escalation protocols.
-          </p>
-        </motion.div>
-
-        {/* Future Enhancements */}
+        {/* Conclusion Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -122,59 +74,84 @@ const Conclusions = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <span className="badge-steady mb-4 inline-block">INNOVATION ROADMAP</span>
-          <h3 className="section-title text-3xl">Future Enhancements</h3>
+          <h2 className="section-title text-4xl md:text-5xl">Conclusion</h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {futureEnhancements.map((enhancement, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="stat-card"
-            >
-              <h4 className="text-lg font-semibold mb-4 gradient-text">{enhancement.title}</h4>
-              <ul className="space-y-3">
-                {enhancement.items.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
-                    <span className="text-primary mt-1">→</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Limitations Section */}
+        {/* District-Level Prioritization */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mt-20"
+          className="max-w-4xl mx-auto mb-12"
         >
-          <div className="text-center mb-8">
-            <span className="badge-steady mb-4 inline-block">TRANSPARENCY</span>
-            <h3 className="section-title text-3xl">Limitations</h3>
-          </div>
-          <div className="stat-card p-6 max-w-4xl mx-auto">
-            <ul className="space-y-3">
-              {[
-                'Data coverage limited to available UIDAI records',
-                'Temporal scope restricted to the dataset time period',
-                'Infrastructure stress indicators are proxy measures',
-                'Real-time integration not yet implemented'
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-muted-foreground">
-                  <span className="text-yellow-500 mt-1">⚠</span>
+          <div className="stat-card p-8">
+            <h3 className="text-xl font-bold text-foreground mb-4">District-Level Prioritization</h3>
+            <p className="text-muted-foreground mb-4">
+              ISI-based ranking highlights districts where infrastructure demand is accelerating faster than baseline capacity, allowing planners to identify:
+            </p>
+            <ul className="space-y-2">
+              {districtPrioritization.map((item, index) => (
+                <li key={index} className="flex items-start gap-3 text-muted-foreground">
+                  <span className="text-primary mt-1">▹</span>
                   {item}
                 </li>
               ))}
             </ul>
+          </div>
+        </motion.div>
+
+        {/* Main Conclusion */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="stat-card max-w-4xl mx-auto mb-12 p-8"
+        >
+          <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+            This project demonstrates how large-scale UIDAI (Aadhaar) administrative data can be transformed into actionable infrastructure intelligence through structured analytics and visualization. By introducing the <span className="text-primary font-semibold">Infrastructure Stress Index (ISI)</span>, complex migration and enrolment dynamics are consolidated into a clear, comparable measure of regional infrastructure pressure.
+          </p>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            The analysis reveals that infrastructure stress is unevenly distributed across districts and evolves dynamically over time, reinforcing the need for granular, data-driven planning rather than uniform, aggregate-based approaches. This framework helps planners decide <span className="text-primary font-semibold">where to act first</span>, not just where stress exists.
+          </p>
+        </motion.div>
+
+        {/* Policy & Planning Impact */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto mb-12"
+        >
+          <div className="stat-card p-8">
+            <h3 className="text-xl font-bold text-primary mb-4">Policy & Planning Impact</h3>
+            <p className="text-muted-foreground mb-4">The proposed framework enables policymakers and planners to:</p>
+            <ul className="space-y-2">
+              {policyPlanningImpact.map((item, index) => (
+                <li key={index} className="flex items-start gap-3 text-muted-foreground">
+                  <span className="text-primary mt-1">▹</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </motion.div>
+
+        {/* Way Forward */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto mb-12"
+        >
+          <div className="stat-card p-8 border-primary/30">
+            <h3 className="text-xl font-bold text-primary mb-4">Way Forward</h3>
+            <p className="text-muted-foreground">
+              The ISI framework and dashboards can be extended to incorporate additional public datasets and updated periodically, enabling continuous infrastructure monitoring and supporting resilient, inclusive, and sustainable infrastructure development aligned with SDG 9.
+            </p>
           </div>
         </motion.div>
 
@@ -187,7 +164,8 @@ const Conclusions = () => {
           className="mt-20 text-center"
         >
           <div className="stat-card p-8 max-w-2xl mx-auto glow-effect">
-            <p className="text-lg text-muted-foreground mb-4">For better visualization and interactive exploration:</p>
+            <h3 className="text-2xl font-bold text-foreground mb-4">Thank You</h3>
+            <p className="text-lg text-muted-foreground mb-4">For Interactive Visualizations:</p>
             <a 
               href="https://urban-pulsee.netlify.app/" 
               target="_blank" 

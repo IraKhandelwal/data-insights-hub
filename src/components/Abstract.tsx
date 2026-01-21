@@ -11,8 +11,6 @@ const tableOfContents = [
   { number: '8', title: 'Visual Analysis (Charts & Graphs)' },
   { number: '9', title: 'Key Insights & Findings' },
   { number: '10', title: 'Conclusion' },
-  { number: '11', title: 'Limitations' },
-  { number: '12', title: 'Future Scope' },
 ];
 
 const Abstract = () => {
@@ -31,7 +29,13 @@ const Abstract = () => {
             <h2 className="section-title text-center mb-8">Abstract</h2>
             <div className="stat-card p-8">
               <p className="text-muted-foreground leading-relaxed text-lg">
-                This project focuses on analyzing <span className="text-primary font-semibold">demographic, enrolment, and biometric data</span> from UIDAI (Aadhaar) using structured data analytics techniques. The analysis includes comprehensive data cleaning, exploratory data analysis, and visualization to identify meaningful trends and patterns related to migration and infrastructure stress across Indian states and districts. Various charts and graphs are used to support insights and improve interpretability. The findings aim to assist <span className="text-primary font-semibold">policymakers and urban planners</span> in evidence-based, data-driven decision-making for SDG 9 infrastructure planning.
+                Urban Pulse presents a data-driven analytical framework to identify and quantify migration-induced infrastructure stress across Indian states and districts using large-scale UIDAI (Aadhaar) demographic, enrolment, and biometric datasets. The project applies structured data cleaning, exploratory data analysis, and visualization techniques to uncover spatial and temporal population movement patterns that directly influence urban infrastructure demand.
+              </p>
+              <p className="text-muted-foreground leading-relaxed text-lg mt-4">
+                A composite <span className="text-primary font-semibold">Infrastructure Stress Index (ISI)</span> is introduced to integrate multiple indicators into a unified, interpretable metric, enabling comparative assessment of regional pressure levels. Interactive dashboards and visual analytics translate complex datasets into actionable insights, allowing policymakers and urban planners to prioritize high-stress districts and design targeted infrastructure interventions.
+              </p>
+              <p className="text-muted-foreground leading-relaxed text-lg mt-4">
+                By leveraging national-scale identity data and analytics-driven decision support, this study demonstrates how evidence-based planning can strengthen resilient, inclusive, and sustainable infrastructure development in alignment with <span className="text-primary font-semibold">SDG 9 (Industry, Innovation, and Infrastructure)</span>.
               </p>
             </div>
           </div>
@@ -74,7 +78,7 @@ const Abstract = () => {
             </h3>
             <div className="stat-card p-6 ml-13">
               <p className="text-muted-foreground leading-relaxed">
-                Data analytics enables organizations to convert raw data into actionable insights. This project analyzes <span className="text-primary font-semibold">UIDAI demographic, enrolment, and biometric datasets</span> to understand trends, distributions, and relationships using statistical and visual methods. The analysis covers migration patterns, infrastructure stress indicators, and regional disparities across India's states and districts.
+                Rapid internal migration and urban expansion in India are placing increasing pressure on public infrastructure across states and districts. Effective infrastructure planning requires timely, granular, and reliable population movement insights, which are often unavailable or fragmented across traditional data sources. National-scale digital identity data offers a unique opportunity to bridge this gap by providing consistent and high-coverage demographic and enrolment signals.
               </p>
             </div>
           </motion.div>
@@ -92,8 +96,25 @@ const Abstract = () => {
               Problem Statement
             </h3>
             <div className="stat-card p-6 ml-13">
-              <p className="text-muted-foreground leading-relaxed">
-                The challenge addressed in this project is understanding <span className="text-primary font-semibold">infrastructure stress patterns</span> arising from migration and demographic changes across Indian districts. Existing approaches lack structured visual interpretation of Aadhaar data for urban planning, which this analysis aims to provide through comprehensive data processing and visualization.
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Despite the availability of large-scale administrative datasets, infrastructure planning decisions are frequently made without a unified, data-driven view of migration-induced regional stress. The absence of integrated analytical frameworks limits the ability of policymakers to:
+              </p>
+              <ul className="space-y-2 text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">▹</span>
+                  Identify high-pressure districts in advance
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">▹</span>
+                  Compare infrastructure stress levels across regions
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">▹</span>
+                  Prioritize investments based on evidence rather than aggregates
+                </li>
+              </ul>
+              <p className="text-muted-foreground leading-relaxed mt-4">
+                This gap directly affects the planning and allocation of essential public infrastructure, including water supply, electricity distribution, urban services, and identity delivery facilities such as Aadhaar Seva Kendras. As a result, infrastructure development often responds to congestion and service overload after it occurs, rather than enabling proactive, demand-aware planning.
               </p>
             </div>
           </motion.div>
@@ -113,11 +134,11 @@ const Abstract = () => {
             <div className="stat-card p-6 ml-13">
               <ul className="space-y-3">
                 {[
-                  'To preprocess and clean raw UIDAI datasets',
-                  'To perform exploratory data analysis on demographic, enrolment, and biometric data',
-                  'To visualize trends using charts and graphs',
-                  'To extract actionable insights for infrastructure planning',
-                  'To identify high-stress districts requiring immediate intervention'
+                  'Quantify and compare migration-driven infrastructure stress across Indian states and districts using UIDAI (Aadhaar) demographic and enrolment data.',
+                  'Develop a composite Infrastructure Stress Index (ISI) to consolidate multiple indicators into a single, interpretable metric for regional prioritization.',
+                  'Identify high-pressure districts and emerging stress hotspots to support proactive infrastructure and service planning.',
+                  'Enable evidence-based decision-making through interactive visual analytics and dashboards designed for policymakers and urban planners.',
+                  'Support sustainable and resilient infrastructure development in alignment with SDG 9 (Industry, Innovation, and Infrastructure).'
                 ].map((objective, index) => (
                   <li key={index} className="flex items-start gap-3 text-muted-foreground">
                     <span className="text-primary mt-1">▹</span>

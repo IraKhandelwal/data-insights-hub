@@ -28,7 +28,7 @@ const HeroSection = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="mb-6"
           >
-            <span className="badge-steady text-sm tracking-widest">UIDAI DATA HACKATHON 2026</span>
+            <span className="badge-steady text-sm tracking-widest">UIDAI DATA HACKATHON</span>
           </motion.div>
           
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6">
@@ -37,11 +37,11 @@ const HeroSection = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-3xl mx-auto">
-            Data Analytics Project Report
+            Identifying India's Migration-Driven Infrastructure Stress Hotspots using Aadhaar Data
           </p>
           
           <p className="text-lg text-muted-foreground/70 mb-12 max-w-2xl mx-auto">
-            Aadhaar-Driven Migration & Infrastructure Stress Analytics for Evidence-Based SDG 9 Planning
+            Aadhaar-Driven Migration & Infrastructure Stress Analytics for Evidence-Based SDG (Sustainable Development Goal) 9 Planning
           </p>
           
           <motion.div 
@@ -56,11 +56,11 @@ const HeroSection = () => {
             </div>
             <div className="stat-card text-center">
               <div className="metric-value">3</div>
-              <div className="metric-label">Datasets Analyzed</div>
+              <div className="metric-label">Datasets</div>
             </div>
             <div className="stat-card text-center">
               <div className="metric-value">961</div>
-              <div className="metric-label">Districts Covered</div>
+              <div className="metric-label">Districts</div>
             </div>
             <div className="stat-card text-center">
               <div className="metric-value">38</div>
@@ -75,14 +75,14 @@ const HeroSection = () => {
             transition={{ delay: 0.8, duration: 0.6 }}
             className="mt-12 text-center"
           >
-            <p className="text-muted-foreground mb-3">For better visualization:</p>
+            <p className="text-muted-foreground mb-3">For better visualization, visit:</p>
             <a 
               href="https://urban-pulsee.netlify.app/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 bg-primary/20 border border-primary/50 rounded-full text-primary hover:bg-primary/30 transition-colors"
             >
-              <span>Visit Interactive Dashboard</span>
+              <span>https://urban-pulsee.netlify.app/</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>

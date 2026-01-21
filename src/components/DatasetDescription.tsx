@@ -3,60 +3,35 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 
 const datasets = [
   {
-    name: 'Demographic Dataset',
-    records: '2,071,700',
+    name: '1. Demographic Dataset',
+    records: '1,006,029',
     columns: 6,
-    uniqueStates: 58,
+    columnsList: 'date, state, district, pincode, demo_age_5_17, demo_age_17+',
+    uniqueStates: '58 (because of similar names)',
     uniqueDistricts: 961,
     memoryUsage: '94.8+ MB',
-    description: 'Contains date-wise demographic data including age groups 5-17 and 17+ across states and districts'
+    description: 'Contains date-wise demographic data including age groups 5-17 and 17+ across states and districts.'
   },
   {
-    name: 'Enrolment Dataset',
-    records: '1,006,029',
+    name: '2. Enrolment Dataset',
+    records: '2,071,700',
     columns: 7,
-    uniqueStates: 49,
+    columnsList: 'date, state, district, pincode, age_0_5, age_5_17, age_18_greater',
+    uniqueStates: '49',
     uniqueDistricts: 964,
     memoryUsage: '53.7+ MB',
-    description: 'Contains enrolment data segmented by age groups: 0-5, 5-17, and 18+'
+    description: 'Contains enrolment data segmented by age groups: 0-5, 5-17, and 18+.'
   },
   {
-    name: 'Biometric Dataset',
+    name: '3. Biometric Dataset',
     records: '1,861,108',
     columns: 6,
-    uniqueStates: 50,
+    columnsList: 'date, state, district, pincode, bio_age_5_17, bio_age_17+',
+    uniqueStates: '50',
     uniqueDistricts: 949,
     memoryUsage: '85.2+ MB',
-    description: 'Contains biometric update data for age groups 5-17 and 17+'
+    description: 'Contains biometric update data for age groups 5-17 and 17+.'
   }
-];
-
-const demographicColumns = [
-  { column: 'date', description: 'Date of record (object type)' },
-  { column: 'state', description: 'State/UT name' },
-  { column: 'district', description: 'District name' },
-  { column: 'pincode', description: 'PIN code (6-digit)' },
-  { column: 'demo_age_5_17', description: 'Demographic count for age 5-17' },
-  { column: 'demo_age_17_', description: 'Demographic count for age 17+' },
-];
-
-const enrolmentColumns = [
-  { column: 'date', description: 'Date of record' },
-  { column: 'state', description: 'State/UT name' },
-  { column: 'district', description: 'District name' },
-  { column: 'pincode', description: 'PIN code' },
-  { column: 'age_0_5', description: 'Enrolment count for age 0-5' },
-  { column: 'age_5_17', description: 'Enrolment count for age 5-17' },
-  { column: 'age_18_greater', description: 'Enrolment count for age 18+' },
-];
-
-const biometricColumns = [
-  { column: 'date', description: 'Date of record' },
-  { column: 'state', description: 'State/UT name' },
-  { column: 'district', description: 'District name' },
-  { column: 'pincode', description: 'PIN code' },
-  { column: 'bio_age_5_17', description: 'Biometric updates for age 5-17' },
-  { column: 'bio_age_17_', description: 'Biometric updates for age 17+' },
 ];
 
 const DatasetDescription = () => {
@@ -72,7 +47,7 @@ const DatasetDescription = () => {
         >
           <h2 className="section-title">Dataset Description</h2>
           <p className="section-subtitle">
-            Three primary datasets from UIDAI covering demographic, enrolment, and biometric records
+            Three primary datasets from UIDAI covering demographic, enrolment, and biometric records across Indian states and districts.
           </p>
         </motion.div>
 
@@ -88,112 +63,43 @@ const DatasetDescription = () => {
               className="stat-card p-6"
             >
               <h3 className="text-xl font-bold text-primary mb-4">{dataset.name}</h3>
-              <div className="space-y-3 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Records:</span>
-                  <span className="text-foreground font-mono">{dataset.records}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Columns:</span>
-                  <span className="text-foreground font-mono">{dataset.columns}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Unique States:</span>
-                  <span className="text-foreground font-mono">{dataset.uniqueStates}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Unique Districts:</span>
-                  <span className="text-foreground font-mono">{dataset.uniqueDistricts}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Memory:</span>
-                  <span className="text-foreground font-mono">{dataset.memoryUsage}</span>
-                </div>
+              <div className="overflow-x-auto">
+                <Table>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell className="text-muted-foreground font-medium">Records:</TableCell>
+                      <TableCell className="text-foreground font-mono text-right">{dataset.records}</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className="text-muted-foreground font-medium">Columns:</TableCell>
+                      <TableCell className="text-foreground font-mono text-right">{dataset.columns}</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className="text-muted-foreground font-medium">Unique States:</TableCell>
+                      <TableCell className="text-foreground font-mono text-right">{dataset.uniqueStates}</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className="text-muted-foreground font-medium">Unique Districts:</TableCell>
+                      <TableCell className="text-foreground font-mono text-right">{dataset.uniqueDistricts}</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className="text-muted-foreground font-medium">Memory Usage:</TableCell>
+                      <TableCell className="text-foreground font-mono text-right">{dataset.memoryUsage}</TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
               </div>
-              <p className="text-muted-foreground text-sm mt-4 pt-4 border-t border-border">
-                {dataset.description}
-              </p>
+              <div className="mt-4 pt-4 border-t border-border">
+                <p className="text-xs text-muted-foreground mb-2">
+                  <span className="text-primary font-medium">Columns:</span> {dataset.columnsList}
+                </p>
+                <p className="text-muted-foreground text-sm">
+                  {dataset.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
-
-        {/* Column Descriptions */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="space-y-8"
-        >
-          {/* Demographic Columns */}
-          <div className="stat-card p-6">
-            <h4 className="text-lg font-bold text-primary mb-4">Demographic Dataset Columns</h4>
-            <div className="overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="text-primary">Column Name</TableHead>
-                    <TableHead className="text-primary">Description</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {demographicColumns.map((col) => (
-                    <TableRow key={col.column}>
-                      <TableCell className="font-mono text-foreground">{col.column}</TableCell>
-                      <TableCell className="text-muted-foreground">{col.description}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-          </div>
-
-          {/* Enrolment Columns */}
-          <div className="stat-card p-6">
-            <h4 className="text-lg font-bold text-primary mb-4">Enrolment Dataset Columns</h4>
-            <div className="overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="text-primary">Column Name</TableHead>
-                    <TableHead className="text-primary">Description</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {enrolmentColumns.map((col) => (
-                    <TableRow key={col.column}>
-                      <TableCell className="font-mono text-foreground">{col.column}</TableCell>
-                      <TableCell className="text-muted-foreground">{col.description}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-          </div>
-
-          {/* Biometric Columns */}
-          <div className="stat-card p-6">
-            <h4 className="text-lg font-bold text-primary mb-4">Biometric Dataset Columns</h4>
-            <div className="overflow-x-auto">
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="text-primary">Column Name</TableHead>
-                    <TableHead className="text-primary">Description</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {biometricColumns.map((col) => (
-                    <TableRow key={col.column}>
-                      <TableCell className="font-mono text-foreground">{col.column}</TableCell>
-                      <TableCell className="text-muted-foreground">{col.description}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-          </div>
-        </motion.div>
 
         {/* Post-Processing Stats */}
         <motion.div
@@ -210,12 +116,12 @@ const DatasetDescription = () => {
               <div className="text-sm text-muted-foreground">Unique States/UTs</div>
             </div>
             <div className="text-center p-4 bg-background/50 rounded-lg">
-              <div className="text-3xl font-bold text-primary">0</div>
-              <div className="text-sm text-muted-foreground">Null Values</div>
+              <div className="text-3xl font-bold text-primary">961</div>
+              <div className="text-sm text-muted-foreground">Districts Covered</div>
             </div>
             <div className="text-center p-4 bg-background/50 rounded-lg">
-              <div className="text-3xl font-bold text-primary">0</div>
-              <div className="text-sm text-muted-foreground">Duplicate Records</div>
+              <div className="text-3xl font-bold text-primary">4.9M+</div>
+              <div className="text-sm text-muted-foreground">Total Records</div>
             </div>
             <div className="text-center p-4 bg-background/50 rounded-lg">
               <div className="text-3xl font-bold text-primary">100%</div>
