@@ -1,159 +1,117 @@
 import { motion } from 'framer-motion';
 
-// Import existing images
-import migrationStressNational from '@/assets/migration-stress-national.jpeg';
-import isiComponentBreakdown from '@/assets/isi-component-breakdown.jpeg';
-import infrastructureReadiness from '@/assets/infrastructure-readiness.jpeg';
-import regionalOperations from '@/assets/regional-operations.jpeg';
-import momentumDeployment from '@/assets/momentum-deployment.jpeg';
-import structuralLoadHeatmap from '@/assets/structural-load-heatmap.jpeg';
-import growthShockHeatmap from '@/assets/growth-shock-heatmap.jpeg';
-import structuralLoadHeatmap2 from '@/assets/structural-load-heatmap-2.jpeg';
-
-// Import new images
-import isiInequalityStates from '@/assets/isi-inequality-states.jpeg';
-import isiInequalityAP from '@/assets/isi-inequality-ap.jpeg';
-import isiDecompositionNational from '@/assets/isi-decomposition-national.jpeg';
-import isiDecompositionAP from '@/assets/isi-decomposition-ap.jpeg';
-import monthlyDistributionNational from '@/assets/monthly-distribution-national.jpeg';
-import monthlyDistributionAP from '@/assets/monthly-distribution-ap.jpeg';
-import monthlyDistributionAnnamayya from '@/assets/monthly-distribution-annamayya.jpeg';
+// Import new dashboard images from PDF
+import dashboardNational from '@/assets/dashboard-national.jpg';
+import dashboardDistrictStress from '@/assets/dashboard-district-stress.jpg';
+import dashboardIsiComponents from '@/assets/dashboard-isi-components.jpg';
+import dashboardIsiOverview from '@/assets/dashboard-isi-overview.jpg';
+import structuralLoadAnalysis from '@/assets/structural-load-analysis.jpg';
+import growthMomentum from '@/assets/growth-momentum.jpg';
+import districtLevelIsi from '@/assets/district-level-isi.jpg';
+import nationalHeatmap from '@/assets/national-heatmap.jpg';
+import seasonalPattern from '@/assets/seasonal-pattern.jpg';
+import isiDecompositionMatrix from '@/assets/isi-decomposition-matrix.jpg';
+import isiInequalityBoxplot from '@/assets/isi-inequality-boxplot.jpg';
 
 const visualizations = [
   {
     id: 1,
-    image: isiInequalityStates,
-    title: 'Within-State ISI Inequality: Concentration of Infrastructure Stress',
-    description: 'Box plot showing the distribution of Infrastructure Stress Index (ISI) across multiple states using logarithmic scale.',
-    observation: 'Tamil Nadu shows the highest ISI values with max reaching 13.35M, while Chhattisgarh displays the widest variance. States like Haryana and Maharashtra show more concentrated distributions.',
-    insight: 'The log scale reveals significant within-state inequality in infrastructure stress. States with high variance require district-level targeted interventions rather than uniform state-wide policies.',
-    category: 'ISI Distribution'
-  },
-  {
-    id: 2,
-    image: isiInequalityAP,
-    title: 'Within-State ISI Inequality: Andhra Pradesh Focus',
-    description: 'Detailed box plot analysis of Andhra Pradesh highlighting outlier districts with extreme ISI values.',
-    observation: 'Nellore district stands out as a significant outlier with ISI of 12.02M, while the median ISI for the state is around 1-3M range.',
-    insight: 'Nellore requires immediate infrastructure attention as an outlier district. The presence of such extreme outliers indicates localized stress points that aggregate state-level metrics would miss.',
-    category: 'State Deep Dive'
-  },
-  {
-    id: 3,
-    image: isiDecompositionNational,
-    title: 'ISI Decomposition Matrix: National (State Level)',
-    description: 'Scatter plot showing the relationship between Growth Shock (Acceleration Factor) and Structural Load (Baseline Pressure) with risk categorization.',
-    observation: 'Critical (red) districts cluster in the upper half with high structural load. Most states fall below the median shock line, but several show concerning combinations of both factors.',
-    insight: 'States with high structural load AND high growth shock (upper right quadrant) require priority intervention. The visualization enables risk-based resource allocation for infrastructure planning.',
-    category: 'Risk Matrix'
-  },
-  {
-    id: 4,
-    image: isiDecompositionAP,
-    title: 'ISI Decomposition Matrix: Andhra Pradesh (District Level)',
-    description: 'District-level decomposition matrix for Andhra Pradesh showing Structural Load vs Growth Shock distribution.',
-    observation: 'Several districts show structural loads exceeding 15k, with most clustering around the median shock value of 0.25. Critical districts are spread across both high and low shock regions.',
-    insight: 'Andhra Pradesh has multiple high-stress districts requiring differentiated interventions. Districts with high load but low shock need maintenance, while those with high shock need capacity expansion.',
-    category: 'State Deep Dive'
-  },
-  {
-    id: 5,
-    image: monthlyDistributionNational,
-    title: 'Month-of-Year Distribution: National',
-    description: 'Time series showing migration volume patterns across months at the national level with average reference line.',
-    observation: 'March shows highest migration volume (~7M), followed by a sharp drop in April-July. September shows a significant spike to 5.34M before October dips. Nov-Dec show recovery.',
-    insight: 'Seasonal patterns correlate with agricultural cycles and academic sessions. Infrastructure planning should account for March peaks and prepare resources accordingly.',
-    category: 'Temporal Analysis'
-  },
-  {
-    id: 6,
-    image: monthlyDistributionAP,
-    title: 'Month-of-Year Distribution: Andhra Pradesh',
-    description: 'State-level monthly migration pattern for Andhra Pradesh showing similar seasonal trends.',
-    observation: 'March peaks at ~350k followed by lowest in April (~50k). September shows 194.26k. December trends highest at ~280k, deviating from national pattern.',
-    insight: 'Andhra Pradesh\'s December spike differs from national trends, possibly due to regional festivals or harvest patterns. State-specific planning is needed.',
-    category: 'Temporal Analysis'
-  },
-  {
-    id: 7,
-    image: monthlyDistributionAnnamayya,
-    title: 'Month-of-Year Distribution: Annamayya District',
-    description: 'District-level monthly distribution showing micro-level migration patterns for Annamayya.',
-    observation: 'May shows peak at 3,220, with April at lowest (~900). October dip followed by December peak at ~3,000. Pattern shows high volatility.',
-    insight: 'District-level patterns reveal local dynamics invisible at state/national level. Annamayya\'s May peak may relate to local economic activities requiring targeted service capacity.',
-    category: 'District Focus'
-  },
-  {
-    id: 8,
-    image: migrationStressNational,
-    title: 'Migration Stress Dashboard: National View',
-    description: 'Comprehensive dashboard showing migration patterns and stress indicators across all states.',
-    observation: 'Dashboard provides holistic view of migration stress with multiple metrics and geographic distribution patterns.',
-    insight: 'Multi-dimensional view enables policymakers to identify correlations between different stress factors and prioritize interventions.',
+    image: dashboardNational,
+    title: 'National Context: Average Infrastructure Stress by State',
+    description: 'This dashboard presents an integrated, multi-level view of infrastructure stress derived from UIDAI demographic, enrolment, and biometric datasets. It is designed to support evidence-based prioritization and monitoring aligned with SDG 9: Industry, Innovation, and Infrastructure.',
+    observation: 'At the national level, states are ranked based on their average Infrastructure Stress Index (ISI), providing a comparative overview of relative pressure across regions.',
+    insight: 'The dashboard is interactive—users can dynamically change the selected state to explore regional patterns and district-level variations. All outputs are intentionally framed as decision-support indicators, enabling planners and administrators to identify high-pressure areas for further assessment.',
     category: 'Dashboard'
   },
   {
-    id: 9,
-    image: isiComponentBreakdown,
-    title: 'ISI Component Breakdown Analysis',
-    description: 'Decomposition of the Infrastructure Stress Index into its constituent components.',
-    observation: 'Visualization shows how different factors contribute to overall ISI scores across regions.',
-    insight: 'Understanding component weights helps target specific infrastructure aspects (healthcare, transport, utilities) for improvement.',
+    id: 2,
+    image: dashboardDistrictStress,
+    title: 'District-Level Infrastructure Stress and Growth Trends: Andhra Pradesh',
+    description: 'At the regional level, district-wise drill-down highlights areas experiencing elevated infrastructure stress and migration momentum within the selected state (shown here: Andhra Pradesh).',
+    observation: 'Districts are classified by growth status (Stable vs. Accelerating), based on recent month-over-month migration momentum, allowing planners to distinguish between structural pressure and emerging growth-driven stress.',
+    insight: 'This view demonstrates how UIDAI administrative data can be transformed into actionable decision-support insights for infrastructure planning under SDG 9, while explicitly avoiding operational or policy prescriptions.',
+    category: 'State Analysis'
+  },
+  {
+    id: 3,
+    image: dashboardIsiComponents,
+    title: 'ISI Component Breakdown — District Drivers in Andhra Pradesh',
+    description: 'The component breakdown further improves interpretability by explaining how structural load (population pressure) and growth dynamics contribute to the overall ISI score.',
+    observation: 'Components include Young_Migrants, Adult_Population, and GrowthRate_Impact, showing their relative contribution to each district\'s ISI.',
+    insight: 'Understanding component weights helps target specific infrastructure aspects for improvement and enables differentiated intervention strategies based on the primary stress driver.',
     category: 'ISI Analysis'
   },
   {
+    id: 4,
+    image: dashboardIsiOverview,
+    title: 'District-Level ISI Overview: Andhra Pradesh',
+    description: 'This visualization presents a district-level analysis of the Infrastructure Stress Index (ISI) for Andhra Pradesh, derived from integrated UIDAI demographic, enrolment, and biometric datasets. The chart ranks districts by relative infrastructure stress.',
+    observation: 'Cuddapah exhibits the highest relative ISI, indicating sustained infrastructure pressure driven primarily by population load rather than rapid acceleration. Districts highlighted as Accelerating (e.g., Hyderabad, East Godavari) reflect elevated growth dynamics.',
+    insight: 'Each bar represents a district\'s capped ISI value, ensuring that extreme outliers do not distort comparative interpretation. The dashboard is fully interactive—users can dynamically change the state and analytical metric.',
+    category: 'State Analysis'
+  },
+  {
+    id: 5,
+    image: structuralLoadAnalysis,
+    title: 'Structural Load Analysis (Youth-to-Adult Pressure): Andhra Pradesh',
+    description: 'This view isolates structural load, defined as the youth-to-adult population ratio, to highlight districts experiencing sustained baseline pressure on infrastructure, independent of short-term growth effects.',
+    observation: 'In Andhra Pradesh, Cuddapah exhibits the highest structural load despite stable growth, indicating long-term demand on services driven by population composition rather than recent acceleration.',
+    insight: 'Districts marked as Accelerating combine structural pressure with growth momentum, signaling areas where baseline stress may intensify if trends persist. This separation of structural pressure from growth dynamics improves interpretability.',
+    category: 'Structural Analysis'
+  },
+  {
+    id: 6,
+    image: growthMomentum,
+    title: 'Growth Momentum Analysis (Emerging Pressure Signals)',
+    description: 'This view highlights district-level growth momentum, measured as the month-over-month percentage change in enrolment activity, to identify areas experiencing rapid acceleration.',
+    observation: 'In Andhra Pradesh, Anakapalli exhibits the highest growth momentum, indicating a sharp recent increase in activity relative to other districts. Districts shown here are classified as Accelerating.',
+    insight: 'Unlike structural load, this metric captures short-term dynamics that may signal emerging infrastructure pressure. This analysis complements structural and ISI views by surfacing early-stage growth signals.',
+    category: 'Momentum Analysis'
+  },
+  {
+    id: 7,
+    image: districtLevelIsi,
+    title: 'District-Level Infrastructure Stress Overview (State View)',
+    description: 'This chart presents a district-wise comparison of infrastructure stress for Andhra Pradesh, using the Infrastructure Stress Index (ISI) derived from UIDAI demographic and enrolment signals. Values are capped at the 99th percentile.',
+    observation: 'Cuddapah emerges as the district with the highest relative stress, driven primarily by sustained population pressure rather than rapid short-term acceleration. Districts highlighted as Accelerating reflect elevated growth momentum.',
+    insight: 'This view enables intra-state prioritization and comparative assessment, supporting evidence-based discussions on infrastructure readiness without implying operational, budgetary, or policy actions.',
+    category: 'State Analysis'
+  },
+  {
+    id: 8,
+    image: nationalHeatmap,
+    title: 'National Infrastructure Stress & Growth Patterns (Interactive Heatmap)',
+    description: 'This visualization presents a national-level overview of infrastructure stress and growth dynamics across Indian states, derived from UIDAI administrative data. The heatmap encodes relative intensity of the selected metric.',
+    observation: 'Darker shades indicate higher relative values, highlighting states experiencing comparatively greater pressure or faster change. The interactive design enables state-level drill-down into district-wise distributions.',
+    insight: 'This dual-level view helps distinguish systemic regional pressure from state-specific or district-level dynamics, improving interpretability and enabling comparative assessment, monitoring, and prioritization aligned with SDG 9.',
+    category: 'National Overview'
+  },
+  {
+    id: 9,
+    image: seasonalPattern,
+    title: 'Seasonal Pattern of Migration Activity',
+    description: 'This visualization highlights seasonal variation in migration-related demographic activity across the calendar year at the national level.',
+    observation: 'Months such as March, September, November, and December show relatively higher activity compared to the annual average, indicating periods of seasonal concentration. April through July and October reflect comparatively lower activity.',
+    insight: 'These patterns complement structural and growth-based indicators by adding a temporal dimension to the analysis. The insights support comparative monitoring of seasonal dynamics without implying forecasts or policy decisions.',
+    category: 'Temporal Analysis'
+  },
+  {
     id: 10,
-    image: infrastructureReadiness,
-    title: 'Infrastructure Readiness Assessment',
-    description: 'Assessment of infrastructure capacity and readiness across different regions.',
-    observation: 'Readiness levels vary significantly across regions, with some showing critical gaps.',
-    insight: 'Readiness scores help prioritize capacity building investments and identify regions needing immediate support.',
-    category: 'Assessment'
+    image: isiDecompositionMatrix,
+    title: 'Infrastructure Stress Driver Matrix (ISI Decomposition): National',
+    description: 'This scatter matrix decomposes the Infrastructure Stress Index (ISI) into two dimensions: Structural Load (baseline population pressure) and Growth Shock (short-term acceleration). Median reference lines divide regions into four comparative quadrants.',
+    observation: 'Stress Driver Quadrants include: High Load + High Growth, Low Load + Low Growth, Low Load + High Growth, and High Load + Low Growth. This enables interpretation of whether stress is driven by sustained load, recent growth, or a combination.',
+    insight: 'The visualization improves explainability of ISI scores by distinguishing long-term structural pressure from emerging growth dynamics, supporting comparative assessment and prioritization without implying operational or policy actions.',
+    category: 'Risk Matrix'
   },
   {
     id: 11,
-    image: structuralLoadHeatmap,
-    title: 'Structural Load Heatmap',
-    description: 'Geographic heatmap showing structural load distribution across districts.',
-    observation: 'Concentrated high-load areas visible in specific geographic clusters.',
-    insight: 'Spatial patterns reveal infrastructure corridors and urban agglomeration effects on stress distribution.',
-    category: 'Heatmap'
-  },
-  {
-    id: 12,
-    image: growthShockHeatmap,
-    title: 'Growth Shock Heatmap',
-    description: 'Heatmap visualization of growth shock factors across regions.',
-    observation: 'Growth shock patterns differ from structural load, indicating dynamic change areas.',
-    insight: 'Areas with high growth shock but low current load are emerging stress points requiring proactive planning.',
-    category: 'Heatmap'
-  },
-  {
-    id: 13,
-    image: structuralLoadHeatmap2,
-    title: 'Structural Load Analysis - Extended View',
-    description: 'Extended analysis of structural load with additional metrics and breakdowns.',
-    observation: 'Detailed view reveals sub-regional patterns within high-stress areas.',
-    insight: 'Granular analysis enables micro-targeting of infrastructure investments at block/tehsil level.',
-    category: 'Heatmap'
-  },
-  {
-    id: 14,
-    image: regionalOperations,
-    title: 'Regional Operations Dashboard',
-    description: 'Operational metrics and service delivery indicators across regions.',
-    observation: 'Service delivery efficiency varies with infrastructure stress levels.',
-    insight: 'Correlating operational data with stress indices helps optimize resource deployment and service delivery.',
-    category: 'Operations'
-  },
-  {
-    id: 15,
-    image: momentumDeployment,
-    title: 'Momentum Deployment Analysis',
-    description: 'Analysis of deployment momentum and acceleration patterns across districts.',
-    observation: 'Certain districts show accelerating momentum indicating rising demand.',
-    insight: 'Early identification of accelerating districts enables proactive capacity planning before stress becomes critical.',
-    category: 'Momentum'
+    image: isiInequalityBoxplot,
+    title: 'Within-State ISI Inequality: Distribution of District-Level Stress',
+    description: 'This box plot illustrates the distribution of district-level Infrastructure Stress Index (ISI) scores within states, highlighting the degree of concentration versus dispersion of infrastructure pressure. Log scale applied to improve readability.',
+    observation: 'Wider distributions and prominent outliers indicate states where stress is unevenly concentrated in specific districts rather than uniformly distributed. For example, Janjgir-Champa in Chhattisgarh shows ISI of 29.9332M.',
+    insight: 'By revealing intra-state variation, this view complements national and district-level analyses and supports comparative assessment of localized pressure patterns under SDG 9, without implying operational or policy actions.',
+    category: 'ISI Distribution'
   }
 ];
 
@@ -168,9 +126,9 @@ const VisualAnalysis = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="section-title">Visual Analysis</h2>
+          <h2 className="section-title">Visual Analysis (Charts & Graphs)</h2>
           <p className="section-subtitle">
-            Charts & Graphs with detailed descriptions, observations, and insights
+            Comprehensive visual analysis with detailed descriptions, observations, and insights
           </p>
           <p className="text-sm text-muted-foreground mt-2">
             📌 Each visualization is followed by description, observation, and actionable insight
